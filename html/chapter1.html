@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script language=JavaScript> var message="Function Disabled!"; function clickIE4(){ if (event.button==2){ alert(message); return false; } } function clickNS4(e){ if (document.layers||document.getElementById&&!document.all){ if (e.which==2||e.which==3){ alert(message); return false; } } } if (document.layers){ document.captureEvents(Event.MOUSEDOWN); document.onmousedown=clickNS4; } else if (document.all&&!document.getElementById){ document.onmousedown=clickIE4; } document.oncontextmenu=new Function("alert(message);return false") </script>
+<script type="text/javascript">
+
+/***********************************************
+* Disable Text Selection script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Please keep this notice intact
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+function disableSelection(target){
+if (typeof target.onselectstart!="undefined") //IE route
+	target.onselectstart=function(){return false}
+else if (typeof target.style.MozUserSelect!="undefined") //Firefox route
+	target.style.MozUserSelect="none"
+else //All other route (ie: Opera)
+	target.onmousedown=function(){return false}
+target.style.cursor = "default"
+}
+
+//Sample usages
+//disableSelection(document.body) //Disable text selection on entire body
+//disableSelection(document.getElementById("mydiv")) //Disable text selection on element with id="mydiv"
+
+</script>
+
+	<meta charset="utf-8">
+	<title>Our Black Magician</title>
+	<meta name="description" content="Our Black Magician">
+	<!-- Latest compiled and minified CSS -->
+<!--	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+-->
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/custom.css">
+
+	<!-- Optional theme -->
+<!--	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+-->
+
+</head>
+
+<body bgcolor="#FFFFFF" ondragstart="return false" onselectstart="return false">
+
+	<header>
+		<div class="well">
+			<div class="container">
+				<h2>Our Black Magician</h2>
+			</div>
+		</div>
+	</header>
+
+		<div class="container-fluid">
+			<div class="row" >
+				<div class="col-md-10"> </div>
+				<div class="col-md-2"><button type="button" id ="show_all" onclick ="showall()" class="btn btn-primary btn-sm">show all</button></div>
+			</div>
+			<div class="row" >
+				<div class="col-md-3 scroll-left">
+					<div class="row">
+						<div class="col-md-12"><button type="button" id ="section_1" onclick ="showandhide('1',this)" class="btn btn-info btn-sm">Page1</button></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12"><button type="button" id ="section_2" onclick ="showandhide('2',this)" class="btn btn-info btn-sm">Page2</button></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-11"><button type="button" id ="section_2_1" onclick ="showandhide('2_1',this)" class="btn  btn-info btn-sm">Page3</button></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-11"><button type="button" id ="section_2_2" onclick ="showandhide('2_2',this)" class="btn btn-default btn-info btn-sm">Page4</button></div>
+					</div>
+					<hr>
+<!--
+					<div class="row">
+						<div class="col-md-12"><button type="button" id ="section_3" onclick ="showandhide('3',this)" class="btn btn-info btn-sm">Adaptive ANC (AANC)</button></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-11"><button type="button" id ="section_3_1" onclick ="showandhide('3_1',this)" class="btn btn-info btn-sm">AANC Software Architecture</button></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-11"><button type="button" id ="section_3_2" onclick ="showandhide('3_2',this)" class="btn btn-default btn-info btn-sm">AANC Devices</button></div>
+					</div>
+
+					<hr>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-11"><button type="button" id ="section_3_3" onclick ="showandhide('3_3',this)" class="btn btn-default btn-info btn-sm">AANC Software Verification</button></div>
+					</div>
+
+
+
+					<hr>
+					<div class="row">
+						<div class="col-md-12"><button type="button" id ="section_4" onclick ="showandhide('4')" class="btn btn-info btn-sm">ANC vs AANC</button></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12"><button type="button" id ="section_5" onclick ="showandhide('5')" class="btn btn-info btn-sm">Enabling Logs</button></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12"><button type="button" id ="section_6" onclick ="showandhide('6')" class="btn btn-info btn-sm">S/P/E Paths</button></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12"><button type="button" id ="section_7" onclick ="showandhide('7')" class="btn btn-info btn-sm">S/P/E path recordings</button></div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12"><button type="button" id ="section_8" onclick ="showandhide('8')" class="btn btn-info btn-sm">Debugging</button></div>
+					</div>
+-->
+				</div>
+				<div class="col-xs-1" id="col-space"> </div>
+				<div class="col-md-9 scroll-right" >
+				<!--- Section 1 -->
+					<div class="row" id ="1">
+  						<div class="col-md-12">
+							<h3> Introduction</h3>
+							<div class="row" >
+								<div class="col-md-11">
+									ANC (Active Noise Cancellation) is a technology that reduces unwanted background noise that arrives at user's ear-drum
+									by capturing background noise through microphones and actively projecting anti-noise (reversed form of background noise)
+									through speaker or receiver. This anti-noise and the real noise add up in the air and cancel each other. Conventional
+									noise cancellation usually denotes a technology to reduce noise in electric or digital signals, but ANC is a different
+									concept which reduces noises in the air directly. As a result of ANC, a user can experience a quiet environment when one
+									is actually in a noisy environment.With ANC enabled device, the user can hear only desired signals (music or voice) from
+									the device even in a very noisy environment (restaurant, roadside or airplane for example).
+								</div>
+							</div>
+							<div class="row" >
+								<div class="col-md-6">
+									<img src="../images/anc_aanc/ANC1.jpg" width="60%" height="60%" alt="ANC1 image"></img>
+									<div class="row">
+										<div class="col-md-1"> </div>
+										<div class="col-md-5"> Figure 1: ANC principle </div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<img src="../images/anc_aanc/ANC2.jpg" width="60%" height="60%" alt="ANC2 image"></img>
+									<div class="row">
+										<div class="col-md-1"> </div>
+										<div class="col-md-5"> Figure 2: ANC Hardware in headphone </div>
+									</div>
+								</div>
+								<div class="row" >
+									<div class=col-md-1></div>
+									<div class=col-md-10>
+										<li>ANC Stands for Active Noise Cancellation .</li>
+										<li>AANC stands for Adaptive Active Noise Cancellation.</li>
+										<li>180 degree phase shifted Noise signal  (Anti Noise) when mixed  with the Noise signal results in destructive Interference and cancels or reduces the  Surrounding Noise</li>
+										<li>To generate an Anti noise  MIC is required  to capture the Noise  and Hardware  and Software is required that could  phase shift  the noise by 180degree in very less time so that it can reduce the Noise  level by destructive interference .</li>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				<!--- Section 1 -->
+
+				<!--- Section 2   -->
+
+				<div class="row" id ="2">
+					<div class="col-md-12">
+						<h3> ANC Modes</h3>
+						<div class="row">
+							ANC is effective  in the low frequency (100 hz to 1Khz) due to properties of sound waves . High frequency noise can be blocked by passive isolation .
+							Depending on the Acoustic hardware design  there are two type of ANC systems
+							<ul class="list-styled">
+								<li>Feed Forward</li>
+								<li>Feed Back </li>
+							</ul>
+						</div>
+						<h4> Feed Forward Mode</h4>
+
+						<div class="row" id ="2">
+							<div class="col-md-1"> </div>
+							<img src="../images/anc_aanc/FeedForwardANC.jpg" alt="FF Mode"> </img>
+						</div>
+						<div class="row">
+							<div class="col-md-1"> </div>
+							<div class="col-md-4"> Figure 1: Feed Forward ANC Configuration </div>
+						</div>
+						<div class="row"><br></div>
+						<div class="row">
+							<ul class="list-styled">
+								<li>FF ANC takes noise before it arrives at the speaker or receiver , creates anti noise  and plays the Anti noise  through the speaker .</li>
+								<li>FF system is ideal  when noise is from one direction.</li>
+								<li>FF system suffer from Directional Performance  when the noise source is not fixed in 3D space</li>
+    						</ul>
+						</div>
+
+						<h4> Feedback Mode</h4>
+						<div class="row" id ="2">
+							<div class="col-md-1"> </div>
+							<img src="../images/anc_aanc/FeedbackANC.jpg" alt="FF Mode"> </img>
+						</div>
+						<div class="row">
+							<div class="col-md-1"> </div>
+							<div class="col-md-4"> Figure 2: Feedback  ANC Configuration </div>
+						</div>
+						<div class="row"><br></div>
+						<div class="row">
+							<ul class="list-styled">
+							   <li> FB ANC has microphone that captures the noise between the speaker and the ear canal.</li>
+							   <li> FB ANC is more complicated as it picks up the voice and the music that is sent to the speaker.</li>
+							   <li> More effective in reducing low frequency noise. </li>
+							   <li> Less variation in Directional Performance. </li>
+    						</ul>
+						</div>
+
+
+					</div>
+				</div>
+
+				<!--- Section 2 -->
+				<!--- Section 2.1 -->
+				<div class="row" id ="2_1">
+					<div class="col-md-12">
+
+						<h3>ANC Software Architecture</h3>
+						<div class="row" id ="2">
+							<div class="col-md-1"> </div>
+							<div class="col-md-8">
+								<img src="../images/anc_aanc/ANC_Architecture.jpg" width="80%" height="80%" alt="ANC Architecture"> </img>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-1"> </div>
+							<div class="col-md-8"> Figure 1: ANC software Architecture </div>
+						</div>
+						<div class="row"><br><br></div>
+						<div class="row">
+							<div class="col-md-10">
+								<ol class="list-styled">
+
+									<li> During device initialization instance of Audio HAL is created. This  initializes the ACDB Loader module.
+										acdb_loader_get_calibration() function gets the Calibration data for ANC .
+										The ACDB laoder is responsible for conversion of ANC calibration data present in ACDB file
+										to  packed register format having register address, mask and value information . It uses the Macro REG_CODEC_PACK_ENTRY().
+										The conversion is done in the function anc_conversion() . </li>
+
+									<li> The ANC calibration data is sent to the kernel by opening /dev/snd/hwC0D100 node and using the IOCTL SNDRV_CTL_IOCTL_HWDEP_CAL_TYPE  function call .
+									   The calibration data get stored  in the wcd_hwdep_cal driver </li>
+
+									<li> In Qualcomm reference builds the user has to enable/disable  ANC functionality  by choosing  QualcommSettings->ANC option . This results in calling the function
+									   mAudioManger.setParameters("anc_enabled=xxx") where xxx = true or false .
+									   <div class="row">
+									   	 <div class="col-md-5"> <img src="../images/anc_aanc/QualcommSettings1.jpg" height="80%" width="80%" alt= "QualcommSettings 1"> </img> </div>
+									   	 <div class="col-md-5"> <img src="../images/anc_aanc/QualcommSettings2.jpg" height="80%" width="80%" alt= "QualcommSettings 2"> </img> </div>
+									   </div>
+									 </li>
+
+									<li> When  an accessory is  inserted into or removed from the device  then  the codec driver detects  and reports event  to the userspace.
+									   The codec driver has the capability for detecting the type of accessory.
+									   If an ANC headset is inserted or removed  the codec driver  will indicate the userspace about the corresponding events.
+									   In Qualcomm reference builds , ANC headset are reported as Regular Headset . As a result Option is provided in QualcommSettings.apk to enable/disable ANC . </li>
+
+
+									<li> Once Playback starts with ANC headset insterted and the ANC option enabled , enable_snd_device is called with to configure  ANC device  .
+									   This will configure the path in the Codec  . It will also send the "ANC Slot" mixer control to the Codec driver . "ANC Slot" devices the
+									   Calibration data that need to be written to the ANC registers in the Codec  . </li>
+
+									<li> When xxx_codec_enable_anc() where xxx = tasha(WCD9335) , taiko( WCD9320) ,tomtom(WCD9330) is called as one of the function when ANC device is enabled </li>
+
+									<li> xxx_codec_enable_anc() calls wcd_cal_fw_cal()  with the ANC slot number as the parameter and gets the calibration data for that particular ANC slot  .
+									  ANC Slot number has a One to one mapping with the ANC device  ACDBID in QACT that stores the ANC configuration.
+									  The calibration data is a set of register writes  to the ANC HW block in the Codec . </li>
+
+								</ol>
+
+							</div>
+						</div>
+						<div class="row"><br><br></div>
+						<div class="row">
+						   <div class="col-md-12">
+						   		<h4> ACDB Device and ANC Slot Mapping </h4>
+						   </div>
+						</div>
+						<div class="row"><br></div>
+						<div class="row">
+							<div class="col-md-11">
+								<table class="table table-hover">
+									<thead>
+									<tr class="danger">
+										<td><b>ACDB Device</b></td>
+										<td><b>ACDB Device ID</b></td>
+										<td><b>ANC Slot Number</b></td>
+									</tr>
+									</thead>
+									<tr class="info">
+										<td>HEADSET_SPKR_ANC_STEREO_FF</td>
+										<td>26</td>
+										<td>0</td>
+									</tr>
+									<tr class="info">
+										<td>HEADSET_SPKR_ANC_STEREO_FB</td>
+										<td>27</td>
+										<td>1</td>
+									</tr>
+									<tr class="info">
+										<td>HEADSET_SPKR_ANC_MONO_FF</td>
+										<td>28</td>
+										<td>2</td>
+									</tr>
+									<tr class="info">
+										<td>HEADSET_SPKR_ANC_MONO_FB</td>
+										<td>29</td>
+										<td>3</td>
+									</tr>
+									<tr class="info">
+										<td>HANDSET_SPKR_ANC_MONO_FF</td>
+										<td>30</td>
+										<td>4</td>
+									</tr>
+									<tr class="info">
+										<td>HANDSET_SPKR_ANC_MONO_FB</td>
+										<td>31</td>
+										<td>5</td>
+									</tr>
+									<tr class="info">
+										<td>HANDSET_SPKR_ANC_MONO_FB</td>
+										<td>31</td>
+										<td>5</td>
+									</tr>
+									<tr class="info">
+										<td>HANDSET_SPKR_AANC_MONO_FF</td>
+										<td>103</td>
+										<td>6</td>
+									</tr>
+									<tr class="info">
+										<td>ANC_TEST_S_PATH_HANDSET_SPKR_ANC_MONO</td>
+										<td>86</td>
+										<td>7</td>
+									</tr>
+									<tr class="info">
+										<td>ANC_TEST_E_PATH_HANDSET_SPKR_ANC_MONO</td>
+										<td>89</td>
+										<td>8</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+				<!--- Section 2.1-->
+
+				<!--- Section 2.2 -->
+				<div class="row" id ="2_2">
+					<div class="col-md-12">
+
+						<h3>ANC Devices</h3>
+						<div class="class-md-12">
+							<br>
+							<div class="row jumbotron" id="anc-headphones">
+							</div>
+							<br>
+							<div class="row jumbotron" id="speaker-and-anc-headphones">
+							</div>
+							<br>
+							<div class="row jumbotron" id="anc-fb-headphones">
+							</div>
+							<br>
+							<div class="row jumbotron" id="speaker-and-anc-fb-headphones">
+							</div>
+							<br>
+							<div class="row jumbotron" id="voice-anc-headphones">
+							</div>
+							<br>
+							<div class="row jumbotron" id="voice-anc-fb-headphones">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--- Section 2.2-->
+
+
+				<!--- Section 3  -->
+				<div class="row" id ="3">
+					<div class="col-md-12">
+
+						<h3> Adaptive ANC</h3>
+						<div class="row">
+							Adaptive ANC is an extension of FF ANC. Adaptive ANC is DSP firmware that uses signals from two ANC mics to adaptively
+							control FF ANC in codec hardware.In an earpiece ANC application, Adaptive ANC can provide robustness against holding a
+							position and pressure .
+						</div>
+						<div class="row" id ="2">
+							<div class="col-md-1"> </div>
+							<div class="col-md-5">
+								<img src="../images/anc_aanc/AdaptiveAANC.jpg" width="100%" height="100%" alt="FF Mode"> </img>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-1"> </div>
+							<div class="col-md-4"> Figure 3: Adaptive  ANC Configuration </div>
+						</div>
+						<div class="row"><br></div>
+						<div class="row">
+						    <div class="col-md-12">
+								In case of handset earpiece application, the acoustic property changes over time and user's holding pattern.
+								So a fixed ANC approach doesn't produce consistent noise reduction. In Adaptive ANC as shown in Figure 3,
+								there is an extra adaptive algorithm that works on the side. This adaptive algorithm receives signals from
+								two microphones (noise signal x, and error signal e), and calculates optimal filter depending on user's
+								holding pattern and pressing pressure. Conventional FF ANC requires only input signal x , but adaptive algorithm
+								need to have new error signal e. This signal should be captured with an extra MIC placed near transducer. This extra
+								microphone monitors the error signal at quiet zone between the output speaker and the ear canal.
+							</div>
+						</div>
+						<div class="row"><br><br></div>
+						<div class="row">
+						    <div class="col-md-12">
+								<b>Features Concurrent with AANC</b>
+								<ul class="list-styled">
+									<li>Dual MIC Tx Fluence (V3/V4/V5)</li>
+									<li>3-mic ECNS for handsets</li>
+									<li>EEC (single MIC ECNS)</li>
+									<li>Rx speaker path (will be mono always)</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row"><br></div>
+						<div class="row">
+						    <div class="col-md-12">
+								<b>Features not concurrent with AANC</b>
+								<ul class="list-styled">
+								<li>Multi-channel (&gt;3 channel) audio recording</li>
+								<li>Quad mic Fluence Pro</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!--- Section 3  -->
+
+				<!--- Section 3.1 -->
+				<div class="row" id ="3_1">
+					<div class="col-md-12">
+
+						<h3>AANC Software Architecture</h3>
+						<div class="row" id ="2">
+							<div class="col-md-1"> </div>
+							<div class="col-md-8">
+								<img src="../images/anc_aanc/AANC_Architecture.jpg" width="100%" height="100%" alt="AANC Architecture"> </img>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-1"> </div>
+							<div class="col-md-8"> Figure 4: Data path and AANC gain control between WCD codec and Hexagon </div>
+						</div>
+						<div class="row"><br></div>
+						<div class="row">
+						    <div class="col-md-12">
+								In conventional Feed Forward (FF) ANC mode, ANC does a fixed filtering on an input signal to generate antinoise.
+								This approach works well for headsets whose acoustic property remains constant over time. For a handset earpiece
+								application, the acoustic property and a user's holding pattern may change over time. Therefore, a fixed filtering
+								approach does not produce consistent noise reduction.
+								In AANC, there is an adaptive algorithm in Hexagon that receives signals from two mics (noise signal X and
+								error signal E),and calculates optimal filter depending on user's holding pattern and pressing pressure.
+								Conventional FF ANC requires only input signal X, but the adaptive algorithm needs a new error signal E.
+								This signal should be captured with an extra mic placed near the transducer.
+								This extra mic monitors the error signal at the quiet zone between the output speaker and the ear canal.
+								Hexagon updates every 160 samples (20 ms) gain of the CDC_ANCn_GAIN_CTL register in the WCD9xxx codec to minimize
+								the error signal effect canceling the surrounding noise during a voice call in Handset mode.
+							</div>
+						</div>
+						<div class="row"><br><br></div>
+
+						<div class="row">
+							<div class="col-md-1"> </div>
+							<div class="col-md-8">
+								<img src="../images/anc_aanc/Call_flowToenable_AANC.jpg" width="100%" height="100%" alt="AANC Architecture"> </img>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-1"> </div>
+							<div class="col-md-8"> Figure 5: Call Flow to enable AANC  </div>
+						</div>
+						<div class="row"><br></div>
+
+
+					</div>
+				</div>
+				<!--- Section 3.1-->
+
+				<!--- Section 3.2 -->
+				<div class="row" id ="3_2">
+					<div class="col-md-12">
+
+						<h3>AANC Devices</h3>
+						<div class="class-md-12">
+							<div class="col-md-8 jumbotron" id="anc-handset">
+							</div>
+							<br>
+							<div class="col-md-8 jumbotron" id="aanc-handset-mic">
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!--- Section 3.2-->
+
+				<!--- Section 3.3 -->
+				<div class="row" id ="3_3">
+					<div class="col-md-12">
+
+						<h3>AANC Software Verification</h3>
+						<div class="class-md-12">
+							<ol class="list-styled">
+								<li>Ensure that the mixer controls for AANC devices are correct in  mixer_paths.xml. </li>
+								<li>Ensure that the mixer controls for S/P/E path  are correct in  /device/qcom/msmxxx/aanc_tuning_mixer.txt. </li>
+								<li>Make sure that Application layer sets the 'anc_enabled' flag to true </li>
+								<li>Make sure that <b>persist.aanc.enable flag</b> is enabled as true in device/qcom/msm*/system.prop file .
+								 On device the property will be found in /system/build.prop  </li>
+								<li> During Voice call call with AANC enabled , check if the AANC TX an RX device and selected and
+								    calibration data proper to  AANC TX and RX device is sent. </li>
+								<li> In the Kernel logs make sure AANC related command is sent from
+								     QXDM and  makes sure that AANC CFG command is received .
+								     Also the  below  log message with changing gain  written by ADSP to  ANC_CODEC_GAIN_CTL  be be present  .
+								     If the Gain does not change then AANC is not working .
+										 <div class="row" id="Ccode">
+											MSG          [08500/02]   QDSP6/High          00:06:46.735        AFECodecHandler.cpp  00103  afe_cdc_update_register: reg_addr: 0xa0c, value: 128
+										 </div>
+								 </li>
+								<li>  The o/p of adb shell cat /sys/kernel/debug/asoc/*snd-card/taiko_codec/codec_reg |grep 20c   should change with time   during Voice call in case of MSM8994</li>
+								<li>  The o/p of adb shell cat /sys/kernel/debug/regmap/tasha-slim-pgd/registers |grep a0e    should change with time  during Voice call in case of MSM8996</li>
+
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!--- Section 3.3-->
+
+
+				<!--- Section 4  -->
+				<div class="row" id ="4">
+					<div class="col-md-12">
+						<h3>ANC vs AANC</h3>
+						<div class="row">
+							   <div class="col-md-1"> </div>
+							   <div class="col-md-10">
+								<table class="table table-hover">
+									<thead>
+									 <tr>
+										<td><b>ANC</b></td>
+										<td><b>AANC</b></td>
+									  </tr>
+									 </thead>
+									  <tr class="warning">
+										<td>Used only in case of Playback over ANC headphones or ANC headset</td>
+										<td>Used Only in case of Voice call over Handset</td>
+									  </tr>
+									  <tr class="success">
+										<td>Device can be ANC headset and ANC headphone</td>
+										<td>Device is AANC handset only </td>
+									  </tr>
+									  <tr class="warning">
+										<td>Mode in which the ANC hardware block in WCD codec can be configured depending on the ANC headset design  is
+										  <li>Feed Forward </li>
+										  <li>Feedback  </li>
+                						</td>
+										<td>Mode in which the ANC Hardware block in WCD codec is configured is   FeedForward</td>
+									  </tr>
+									  <tr class="success">
+										<td>Mics used are always analog as  they are part of ANC headset or ANC headphone  </td>
+										<td>MICs used can be analog or Digital  </td>
+									  </tr>
+									  <tr class="warning">
+										<td>ADSP does not have anything to do with static ANC. </td>
+										<td>ADSP adjusts the gain of CDC_ANCn_GAIN_CTL every 20 ms during the Voice call.</td>
+								</table>
+							   </div>
+						</div>
+
+					</div>
+				</div>
+				<!--- Section 4  -->
+				<!--- Section 5  -->
+				<div class="row" id ="5">
+					<div class="col-md-12">
+
+						<h3>Enabling Logs</h3>
+						<div class="col-md-10">
+						<ul class="list-styled">
+							<li> <b>logcat logs</b> </li>
+							<div class="row jumbotron">
+							 <font face="courier" >adb logcat -c && adb logcat -v threadtime  | tee logcat.txt</font>
+							</div>
+
+							<li><b>kernel logs (MSM8996)</b></li>
+							<div class="row jumbotron" id="aanc_log_8996">
+							</div>
+
+							<li><b>kernel logs (MSM8994, MSM8992)</b></li>
+							<div class="row jumbotron" id="aanc_log_8994">
+							</div>
+
+							<li><b>kernel logs (Fusion4.5, Fusion4.0)</b></li>
+							<div class="row jumbotron" id="aanc_log_fusion4x">
+							</div>
+
+							<li><b>kernel logs (MSM8974)</b></li>
+							<div class="row jumbotron" id="aanc_log_8974">
+							</div>
+
+
+						</ul>
+						</div>
+					</div>
+				</div>
+				<!--- Section 5 -->
+
+				<!--- Section 6 -->
+				<div class="row" id ="6">
+					<div class="col-md-12">
+
+						<h3>S/P/E Paths</h3>
+						<div class="col-md-12">
+							<div class="row">
+								<h4>P Path </h4>
+								<li>In P-path Recording, a pink noise is played from the external noise speaker </li>
+								<li>While noise is played, a stereo recording is made with 2 of ANC MIC's on handset.</li>
+
+								 <div class="col-md-1"> </div>
+								 <div class="col-md-11">
+
+									<li>The handset must be installed on HATS ear.</li>
+									<li>A standard position on HATS is recommended.</li>
+									<li>Holding Force around 12N is recommended.</li>
+									<li>Two recording channels need to be synchronized.</li>
+								</div>
+							</div>
+							<div class="row">
+								 <div class="col-md-1"> </div>
+								 <div class="col-md-6">
+									<img src="../images/anc_aanc/PPath1.jpg" width="100%", height="100%" alt= "P path1"></img>
+									<div class="row">
+										<div class="col-md-1"> </div>
+										<div class="col-md-5"><b> Figure 1: P Path </b> </div>
+									</div>
+								</div>
+							</div>
+							<div class="row"> <br></div>
+
+							<div class="row">
+								 <div class="col-md-1"> </div>
+								 <div class="col-md-8">
+									<img src="../images/anc_aanc/PPath2.jpg" width="100%", height="100%" alt= "P path2"></img>
+									<div class="row">
+										<div class="col-md-1"> </div>
+										<div class="col-md-8"> <b>Figure 2: P Path Routing & Recording (DMIC Example)</b> </div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row"><br> <br></div>
+							<div class="row">
+								<h4>S Path </h4>
+								<li>In S-path Recording, pink noise is played from the Handset Receiver. </li>
+								<li>While noise is played, a stereo recording is made with Receiver Loopback signal, and ANC Error Mic.</li>
+
+								 <div class="col-md-1"> </div>
+								 <div class="col-md-11">
+
+									<li>The handset must be installed on HATS ear,with same condition as the P-path recording.</li>
+									<li>Loopback signal is a copy (split) of the noise signal sent to Handset receiver.</li>
+									<li>Two recording channels need to be synchronized.</li>
+								</div>
+							</div>
+							<div class="row">
+								 <div class="col-md-1"> </div>
+								 <div class="col-md-6">
+									<img src="../images/anc_aanc/SPath1.jpg" width="100%", height="100%" alt= "S path1"></img>
+									<div class="row">
+										<div class="col-md-1"> </div>
+										<div class="col-md-5"><b> Figure 3: S Path </b> </div>
+									</div>
+								</div>
+							</div>
+							<div class="row"> <br></div>
+
+							<div class="row">
+								 <div class="col-md-1"> </div>
+								 <div class="col-md-8">
+									<img src="../images/anc_aanc/SPath2.jpg" width="100%", height="100%" alt= "S path2"></img>
+									<div class="row">
+										<div class="col-md-1"> </div>
+										<div class="col-md-8"> <b>Figure 4: S Path Routing & Recording (DMIC Example)</b> </div>
+									</div>
+								</div>
+							</div>
+							<div class="row"><br> <br></div>
+							<div class="row">
+								<h4>E Path </h4>
+								<li>In E-path Recording, a pink noise is played from the Handset Receiver.</li>
+								<li>While noise is played, a stereo recording is made with Receiver Loopback signal, and ANC Noise Mic</li>
+
+								 <div class="col-md-1"> </div>
+								 <div class="col-md-11">
+
+									<li>The handset must be installed on HATS ear,with same condition as the P-path recording</li>
+									<li>Loopback signal is a copy (split) of the noise signal sent to Handset receiver. </li>
+									<li>Two recording channels need to be synchronized.</li>
+								</div>
+							</div>
+							<div class="row">
+								 <div class="col-md-1"> </div>
+								 <div class="col-md-6">
+									<img src="../images/anc_aanc/EPath1.jpg" width="100%", height="100%" alt= "E path1"></img>
+									<div class="row">
+										<div class="col-md-1"> </div>
+										<div class="col-md-5"><b> Figure 5: E Path </b> </div>
+									</div>
+								</div>
+							</div>
+							<div class="row"> <br></div>
+
+							<div class="row">
+								 <div class="col-md-1"> </div>
+								 <div class="col-md-8">
+									<img src="../images/anc_aanc/EPath2.jpg" width="100%", height="100%" alt= "E path2"></img>
+									<div class="row">
+										<div class="col-md-1"> </div>
+										<div class="col-md-8"> <b>Figure 6: E Path Routing & Recording (DMIC Example)</b> </div>
+									</div>
+								</div>
+							</div>
+							<div class="row"><br> <br></div>
+
+
+						</div>
+					</div>
+				</div>
+				<!--- Section 6-->
+
+				<!--- Section 7 -->
+				<div class="row" id ="7">
+					<div class="col-md-12">
+						<h3>S/P/E Paths Recordings</h3>
+						<div class="row"><br> <br></div>
+						<div class="row">
+							<div class="col-md-12">
+								QACT loads /device/qcom/msm8994/aanc_tuning_mixer.txt (also found in [APSSBuildRoot]\hardware\qcom\audio\configs\msm8996\aanc_tuning_mixer.txt)from the target and establishes codec internal data path routing for P/S/E configurations.
+								Refer section 3.4 of <a href="http://agiledocument.qualcomm.com/AgileDocument/spring/authorize?itemno=80-NK803-1&rev=C545400" class="btn btn-default"> 80-NK803-1 </a>  for more information about P/S/E path recording
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+
+								<h4>To collect P path recordings:</h4>
+								<ul class="list-styled">
+								 <li> Connect the device via USB and open the QPST and QACT tools. </li>
+								 <li> In QACT, click Connect to Phone.</li>
+								 <li> Click Tools > Tuning > ANC Tuning Tool.</li>
+								 <li> Click Launch Handset ANC Tuning Tool.</li>
+								 <li> Click Collect Recordings.</li>
+								 <li> Select PPath in the Recording mode field.</li>
+								 <li> In the Options section, enter the duration of the recording in secs.</li>
+								 <li> In the Logging section, click Browse and set the location and file name of the recording.</li>
+								 <li> Place the external speaker 4-5 ft away from the phone in the direction of the noise mic.</li>
+								 <li> Turn on pink noise.</li>
+								 <li>  Click Start Recording and wait for the recording to complete.	</li>
+								</ul>
+								<div class="row">
+									<div class="col-md-1"> </div>
+									<div class="col-md-5">
+										<img src="../images/anc_aanc/QACTPPath1.jpg" width="80%" height="80%" alt="Ppath1 QACT"></img>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h4>To collect S path recordings:</h4>
+								<ul class="list-styled">
+								 <li> Connect the device via USB and open the QPST and QACT tools. </li>
+								 <li> In QACT, click Connect to Phone.</li>
+								 <li> Click Tools > Tuning > ANC Tuning Tool.</li>
+								 <li> Click Launch Handset ANC Tuning Tool.</li>
+								 <li> Click Collect Recordings.</li>
+								 <li> Select SPath in the Recording mode field.</li>
+								 <li> In the Options section, enter the duration of the recording in secs.</li>
+								 <li> In the Logging section, click Browse and set the location and file name of the recording.</li>
+								 <li> Place the external speaker 4-5 ft away from the phone in the direction of the noise mic.</li>
+								 <li> Turn on pink noise.</li>
+								 <li>  Click Start PlayBack/Recording Simultaneously.	</li>
+								</ul>
+								<div class="row">
+									<div class="col-md-1"> </div>
+									<div class="col-md-5">
+									  <img src="../images/anc_aanc/QACTSPath1.jpg" width="80%" height="80%" alt="Spath1 QACT"></img>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h4> To collect E path recordings:</h4>
+								<ul class="list-styled">
+								 <li> Connect the device via USB and open the QPST and QACT tools. </li>
+								 <li> In QACT, click Connect to Phone.</li>
+								 <li> Click Tools > Tuning > ANC Tuning Tool.</li>
+								 <li> Click Launch Handset ANC Tuning Tool.</li>
+								 <li> Click Collect Recordings.</li>
+								 <li> Select EPath in the Recording mode field.</li>
+								 <li> In the Options section, enter the duration of the recording in secs.</li>
+								 <li> In the Logging section, click Browse and set the location and file name of the recording.</li>
+								 <li> Place the external speaker 4-5 ft away from the phone in the direction of the noise mic.</li>
+								 <li> Turn on pink noise.</li>
+								 <li>  Click Start PlayBack/Recording Simultaneously.	</li>
+								</ul>
+								<div class="row">
+									<div class="col-md-1"> </div>
+									<div class="col-md-5">
+										<img src="../images/anc_aanc/QACTEPath1.jpg" width="80%" height="80%" alt="Epath1 QACT"></img>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!--- Section 7 -->
+
+				<!--- Section 8 -->
+				<div class="row" id ="8">
+					<div class="col-md-12">
+						<h3>Debugging</h3>
+						<div class="class-md-12">
+							<div class="row">
+								<div class="col-md-3">Issue Type </div>
+								<div class="col-md-9">AANC not working</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">Debug steps </div>
+								<div class="col-md-9">
+									<ul class="list-styled">
+										<li>Check if the anc_enabled flag is set from UI.</li>
+										<li>Check if the persist.aanc.enable flag is enabled as true in device/qcom/msm*/system.prop or the equivalent OEM file.</li>
+										<li>Check whether the mixer control settings in the mixer-paths.xml  file is correct or not </li>
+										<li>Check whether the AANC calibration is sent to the kernel</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-3">Issue Type </div>
+								<div class="col-md-9">Noise(There is noise in the Rx path with AANC enabled)</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">Debug steps </div>
+								<div class="col-md-9">
+									<ul class="list-styled">
+										<li>Check if the issue is seen with AANC disabled.
+										   If the issue disappears, check whether proper ACDB IDs are chosen for Tx and Rx AANC devices.</li>
+										<li>Collect QXDM Pro logs, kernel, and logcat logs, and contact the Customer Engineering Team at https://support.cdmatech.com.</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-3">Issue Type </div>
+								<div class="col-md-9">POP Noise during  start of Voice call with AANC enabled</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">Debug steps </div>
+								<div class="col-md-9">
+									<ul class="list-styled">
+										<li>Ensure that the anc_gain is set to 0x0 in the calibration data for AANC using QACT.</li>
+									</ul>
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+				<!--- Section 8 -->
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+<!--
+	<footer>
+		<div class="container">
+			<hr>
+
+			<p>
+				<small><a href="http://facebook.com/askorama">Like me</a> On facebook</small></p>
+			<p>	<small><a href="http://twitter.com/wiredwiki">Ask whatever </a> On Twitter</small></p>
+			<p>	<small><a href="http://youtube.com/wiredwiki">Subscribe me</a> On Youtube</small>
+
+			</p>
+		</div>
+	</footer>
+-->
+
+	<!-- Latest compiled and minified JavaScript -->
+<!--	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+-->
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/anc.js"></script>
+<script src="../js/process.js"></script>
+<script type="text/javascript">
+disableSelection(document.body) //disable text selection on entire body of page
+</script>
+
+</body>
+</html>
